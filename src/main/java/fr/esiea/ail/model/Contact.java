@@ -12,6 +12,7 @@ public class Contact {
 	private Date dateDeNaissance;
 	private Boolean actif;
 	private List<Adresse> listAdresses ;
+	private String adresse;
 	
 	public String getAlias() {
 		return alias;
@@ -55,5 +56,12 @@ public class Contact {
 	public void setListAdresses(List<Adresse> listAdresses) {
 		this.listAdresses = listAdresses;
 	}
+	public String getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+	
 	
 }

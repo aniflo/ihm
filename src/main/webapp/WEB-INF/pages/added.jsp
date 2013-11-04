@@ -29,7 +29,7 @@
 	    <p>email: ${contact.value.email}</p>
 	    <p>Date de naissance: ${contact.value.dateDeNaissance}</p>
 	    <p>actif: ${contact.value.actif}</p>
-	    
+	    <p>adresse :${contact.value.adresse}</p>
 	    <hr/>
   	</c:forEach>
   	

@@ -38,9 +38,9 @@
 				
 				<tr>
 					<td>associer une adresse:</td>
-					<td><sf:select path="listAdresses" > 
+					<td><sf:select path="adresse" > 
 						<c:forEach items="${adresses}" var="adresse"> 
-							<option value="">${adresse.value.alias}</option>
+							<option value="${adresse.key}">${adresse.key}</option>
 						</c:forEach>
 					</sf:select></td>
 				</tr>

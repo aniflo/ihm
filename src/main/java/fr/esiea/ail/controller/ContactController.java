@@ -17,6 +17,7 @@ public class ContactController {
 	public String ajoutAdresse(Model model)	{
 		
 		model.addAttribute("contact", new Contact());
+		model.addAttribute("adresses", PersistenceManager.getAdresses());
 		
 		return "editContact";
 	}

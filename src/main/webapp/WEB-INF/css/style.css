@@ -1,0 +1,34 @@
+body { background-color:#386AC7 }
+
+
+p{
+	color: white;
+	font-weight: bold;
+}
+
+#site-name, #footer{
+	text-align: center
+}
+
+.author, .title, .info, .introduction {
+	color: #000000 ;
+}
+
+#footer {
+	color: #490052
+}
+
+nav#menu{
+	float:top-left;
+	width:33%
+}
+
+div#connexion 
+{	
+	float:right;
+	width: 33%
+}
+
+div#center{
+	overflow=hidden;
+}
