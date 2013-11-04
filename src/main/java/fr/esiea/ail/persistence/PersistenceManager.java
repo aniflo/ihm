@@ -3,11 +3,13 @@ package fr.esiea.ail.persistence;
 import java.util.HashMap;
 
 import fr.esiea.ail.model.Adresse;
+import fr.esiea.ail.model.Contact;
 
 public class PersistenceManager {
 	
 	//this HASHMAP will be use as "the database"
 	private static HashMap<String,Adresse> adresses=new HashMap<String,Adresse>();
+	private static HashMap<String, Contact> contacts = new HashMap<String, Contact>();
 	
 	
 	//save the adress in the HASHMAP
@@ -21,7 +23,6 @@ public class PersistenceManager {
 	public static Adresse getAdresse(String alias){
 		
 		return adresses.get(alias);
-		
 	}
 	
 	//get all adresses
@@ -35,7 +36,22 @@ public class PersistenceManager {
 	public static void delete(String key){
 		
 		adresses.remove(key);
-		
+	}
+	
+	public static void saveContact(Contact contact){
+		contacts.put(contact.getAlias(), contact);
+	}
+	
+	public static Contact getContact(String alias) {
+		return contacts.get(alias);
+	}
+	
+	public static HashMap<String, Contact> getContacts(){
+		return contacts;
+	}
+	
+	public static void deleteContact(String key) {
+		contacts.remove(key);
 	}
 
 }
