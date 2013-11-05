@@ -226,12 +226,12 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #00FF00;
-
+  color: #333333;
+  background-color: #ffffff;
 }
 
 a {
-  color: #FF912B;
+  color: #0088cc;
   text-decoration: none;
 }
 
