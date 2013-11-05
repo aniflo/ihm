@@ -15,7 +15,7 @@ public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 
-		model.addAttribute("message", "Spring 3 MVC Hello World");
+		model.addAttribute("message", "Bienvenue dans votre carnet d'adresse");
 		return "hello";
 
 	}

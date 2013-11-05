@@ -1,12 +1,11 @@
-body { background-color:#386AC7 }
+body { background-color:#C2EFF0 }
 
 
 p{
 	color: white;
 	font-weight: bold;
 }
-
-#site-name, #footer{
+footer, h1, .menu {
 	text-align: center
 }
 
@@ -14,8 +13,9 @@ p{
 	color: #000000 ;
 }
 
-#footer {
-	color: #490052
+footer {
+	color: #C01480;
+	font-weight: bold;
 }
 
 nav#menu{

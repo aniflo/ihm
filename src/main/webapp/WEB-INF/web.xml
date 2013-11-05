@@ -6,6 +6,22 @@
 	<display-name>Spring Web MVC Application</display-name>
 
 	<servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>
+          org.apache.catalina.servlets.DefaultServlet
+        </servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
@@ -15,12 +31,19 @@
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
 
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
 	</context-param>
-
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
