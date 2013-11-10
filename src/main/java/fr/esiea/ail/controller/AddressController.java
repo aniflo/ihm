@@ -32,7 +32,7 @@ public class AddressController {
 		return "lists";
 	}		
 	
-	@RequestMapping(value="/listes",method=RequestMethod.GET)
+	@RequestMapping(value="/liste-adresses",method=RequestMethod.GET)
 	public String listAdresse(Model model)	{
 		
 		model.addAttribute("contact", new Contact());

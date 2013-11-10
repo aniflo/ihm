@@ -42,5 +42,10 @@ public class Address {
 		this.alias = alias;
 	}
 	
+	@Override
+	public String toString() {
+		return "Address [alias=" + alias + ", numero=" + numero + ", rue=" + rue + ", codepostal="
+				+ codepostal + ", ville=" + ville + "]";
+	}
 	
 }

@@ -35,7 +35,7 @@
 						</tr>
 						<tr>
 							<td>email:</td>
-							<td><sf:input path="email" required="required" type="email" placeholder="example@mail.com"/><br/></td>
+							<td><sf:input path="email" type="email" placeholder="example@mail.com"/><br/></td>
 						</tr>
 						<tr>
 							<td>Date de naissance:</td>

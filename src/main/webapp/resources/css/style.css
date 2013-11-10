@@ -13,7 +13,7 @@ footer, h1, h2, .menu {
 	text-align: center
 }
 
-.author, .title, .info, .introduction {
+.author, .title, #contenu, .introduction {
 	color: #000000 ;
 }
 

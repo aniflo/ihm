@@ -63,5 +63,10 @@ public class Contact {
 		this.adresse = adresse;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Contact [alias=" + alias + ", nom=" + nom + ", prenom=" + prenom + ", email="
+				+ email + ", dateDeNaissance=" + dateDeNaissance + ", actif=" + actif
+				+ ", listAdresses=" + listAdresses + ", adresse=" + adresse + "]";
+	}
 }

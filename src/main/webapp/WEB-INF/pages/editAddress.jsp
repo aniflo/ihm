@@ -34,13 +34,13 @@
 						</tr>
 						<tr>
 							<td>CP:</td>
-							<td><sf:input path="codepostal" required="required" placeholder="codepostal"/><br/>
+							<td><sf:input path="codepostal" placeholder="codepostal"/><br/>
 								
 							</td>
 						</tr>
 						<tr>
 							<td>Ville:</td>
-							<td><sf:input path="ville" required="required" placeholder="ville"/></td>
+							<td><sf:input path="ville" placeholder="ville"/></td>
 						</tr>
 						
 						<tr>

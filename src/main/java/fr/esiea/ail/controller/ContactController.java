@@ -30,11 +30,11 @@ public class ContactController {
 		return "lists";
 	}		
 	
-	@RequestMapping(value="/liste",method=RequestMethod.GET)
+	@RequestMapping(value="/liste-contacts",method=RequestMethod.GET)
 	public String listContacts(Model model)	{
 		
 		model.addAttribute("contact", new Contact());
-		model.addAttribute("addresses", PersistenceManager.getAddresses());
+		model.addAttribute("contacts",PersistenceManager.getContacts());
 		
 		return "lists";
 	}
