@@ -2,7 +2,7 @@ package fr.esiea.ail.model;
 
 import javax.validation.constraints.NotNull;
 
-public class Adresse {
+public class Address {
 	
 	@NotNull
 	private String alias;

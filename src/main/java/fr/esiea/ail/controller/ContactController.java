@@ -12,27 +12,32 @@ import fr.esiea.ail.persistence.PersistenceManager;
 @Controller
 public class ContactController {
 	
-	
 	@RequestMapping(value="/contact",method=RequestMethod.GET)
-	public String ajoutAdresse(Model model)	{
+	public String ajoutContact(Model model)	{
 		
 		model.addAttribute("contact", new Contact());
-		model.addAttribute("adresses", PersistenceManager.getAdresses());
+		model.addAttribute("addresses", PersistenceManager.getAddresses());
 		
 		return "editContact";
 	}
 	
-	
 	@RequestMapping(value="/contact",method=RequestMethod.POST)
-	public String adresseSubmit(@ModelAttribute Contact contact, Model model){
+	public String contactSubmit(@ModelAttribute Contact contact, Model model){
 	
 		PersistenceManager.saveContact(contact);
 		model.addAttribute("contacts",PersistenceManager.getContacts());
 		
-		return "added";
-	
+		return "lists";
 	}		
 	
+	@RequestMapping(value="/liste",method=RequestMethod.GET)
+	public String listContacts(Model model)	{
+		
+		model.addAttribute("contact", new Contact());
+		model.addAttribute("addresses", PersistenceManager.getAddresses());
+		
+		return "lists";
+	}
 	
 	@RequestMapping(value="/deletecontact",method=RequestMethod.GET)
 	public String suppressionContact(Model model){
@@ -48,8 +53,7 @@ public class ContactController {
 		PersistenceManager.deleteContact(key);
 		model.addAttribute("contact",PersistenceManager.getContact(key));
 		
-		return "added";
-	
+		return "lists";
 	}
 		
 }

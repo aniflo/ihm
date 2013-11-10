@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fr.esiea.ail.persistence.PersistenceManager;
 
 @Controller
-@RequestMapping({"/","/welcome"})
-public class HelloController {
+@RequestMapping({"/","/home"})
+public class HomeController {
 	public PersistenceManager persistencemanager;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 
 		model.addAttribute("message", "Bienvenue dans votre carnet d'adresse");
-		return "hello";
+		return "home";
 
 	}
 }

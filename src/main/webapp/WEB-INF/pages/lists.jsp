@@ -12,16 +12,11 @@
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>
 <body>
+	<%@ include file="header.jsp" %>
     <h2>Votre formulaire a bien été enregistré</h2>
     
     <div class="row-fluid">
-	  	<div class="span3">
-		  	<div class="menu">
-				<p><a href="contact">Ajouter un contact</a></p>
-				<p><a href="adresse">Ajouter une adresse</a></p>
-				<p><a href="welcome">retour à l'acceuil</a></p>
-		  	</div>
-	  	</div>
+	  	<%@ include file="menu.jsp" %>
 	  	
 	  	<div class="span9">
 		 	<!-- display all the adresses contained in the HASHMAP  -->
@@ -47,5 +42,7 @@
 		  	</c:forEach>
 	  	</div>
   	</div>
+  	
+  	<%@ include file="footer.jsp" %>
 </body>
 </html>

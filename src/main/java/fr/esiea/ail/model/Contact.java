@@ -11,7 +11,7 @@ public class Contact {
 	private String email;
 	private Date dateDeNaissance;
 	private Boolean actif;
-	private List<Adresse> listAdresses ;
+	private List<Address> listAdresses ;
 	private String adresse;
 	
 	public String getAlias() {
@@ -50,10 +50,10 @@ public class Contact {
 	public void setActif(Boolean actif) {
 		this.actif = actif;
 	}
-	public List<Adresse> getListAdresses() {
+	public List<Address> getListAdresses() {
 		return listAdresses;
 	}
-	public void setListAdresses(List<Adresse> listAdresses) {
+	public void setListAdresses(List<Address> listAdresses) {
 		this.listAdresses = listAdresses;
 	}
 	public String getAdresse() {

@@ -5,6 +5,10 @@ p{
 	color: white;
 	font-weight: bold;
 }
+
+#menu {
+	font-weight: bold;
+}
 footer, h1, h2, .menu {
 	text-align: center
 }

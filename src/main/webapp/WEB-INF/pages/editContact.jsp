@@ -10,15 +10,11 @@
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<h2>Ajouter un contact</h2>
     <div class="row-fluid">
-	  	<div class="span3">
-		  	<div class="menu">
-				<p><a href="contact">Ajouter un contact</a></p>
-				<p><a href="adresse">Ajouter une adresse</a></p>
-				<p><a href="welcome">retour à l'acceuil</a></p>
-		  	</div>
-	  	</div>
+		
+		<%@ include file="menu.jsp" %>
 	  	
 	  	<div class="span9">	
 			<sf:form method="POST" modelAttribute="contact">
@@ -56,8 +52,8 @@
 						<tr>
 							<td>associer une adresse:</td>
 							<td><sf:select path="adresse" > 
-								<c:forEach items="${adresses}" var="adresse"> 
-									<option value="${adresse.key}">${adresse.key}</option>
+								<c:forEach items="${addresses}" var="adresse"> 
+									<option value="${address.key}">${address.key}</option>
 								</c:forEach>
 							</sf:select></td>
 						</tr>
@@ -71,6 +67,7 @@
 			</sf:form>
 		</div>
 	</div>
-
+	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
