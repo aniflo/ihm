@@ -13,29 +13,32 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-    <h2>Détails du contact ${contact.nom} ${contact.prenom}</h2>
+    <h2>Votre formulaire a bien été enregistré</h2>
     
     <div class="row-fluid">
 	  	<%@ include file="menu.jsp" %>
 	  	
 	 	<div id="contenu">
 		  	<div class="span9">
-			 	<!-- display the details of a contact -->
+
+		 		<!-- display saved contact -->
+		  		<c:if test="${contact != null}">
 					    <p>nom:  ${contact.nom} </p>
 					    <p>prénom:   ${contact.prenom} </p>
 					    <p>email: ${contact.email}</p>
 					    <p>Date de naissance: ${contact.dateDeNaissance}</p>
 					    <p>actif: ${contact.actif}</p>
 				    <hr/>
+		  		</c:if>
 			  	
-			 	<!-- display all the adresses liked to the contact -->
-			 	<c:forEach var="address" items="${addresses}" >  
-				    <p> numero:  ${address.value.numero} </p>
-				    <p>rue:   ${address.value.rue} </p>
-				    <p>code postale: ${addressvaluevalue.codepostal }</p>
-				    <p>ville: ${address.value.ville }</p>
+			 	<!-- display saved address -->
+				<c:if test="${address != null}">
+				    <p> numero:  ${address.numero} </p>
+				    <p>rue:   ${address.rue} </p>
+				    <p>code postale: ${address.codepostal }</p>
+				    <p>ville: ${address.ville }</p>
 				    <hr/>
-		  		</c:forEach>
+				   </c:if>
 		 	</div>
 	  	</div>
   	</div>

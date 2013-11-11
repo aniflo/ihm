@@ -41,6 +41,14 @@
 						</tr>
 						
 						<tr>
+							<td>associer un contact:</td>
+							<td><sf:select path="contactAlias" > 
+								<c:forEach var="contact" items="${contacts}" > 
+									<option value="${contact.key}">${contact.key}</option>
+								</c:forEach>
+							</sf:select></td>
+						</tr>
+						<tr>
 							<td colspan="2"><input type="submit"
 								value="Ok, j'ajoute une adresse !" /></td>
 						</tr>

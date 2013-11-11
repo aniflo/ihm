@@ -1,7 +1,8 @@
 package fr.esiea.ail.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Contact {
 	
@@ -11,7 +12,7 @@ public class Contact {
 	private String email;
 	private Date dateDeNaissance;
 	private Boolean actif;
-	private List<Address> listAdresses ;
+	private Map<String,Address> adresses = new HashMap<String,Address>();
 	
 	public String getContactAlias() {
 		return contactAlias;
@@ -49,17 +50,18 @@ public class Contact {
 	public void setActif(Boolean actif) {
 		this.actif = actif;
 	}
-	public List<Address> getListAdresses() {
-		return listAdresses;
+
+	public Map<String, Address> getAdresses() {
+		return adresses;
 	}
-	public void setListAdresses(List<Address> listAdresses) {
-		this.listAdresses = listAdresses;
+	public void setAdresses(Map<String, Address> adresses) {
+		this.adresses = adresses;
 	}
 	
 	@Override
 	public String toString() {
 		return "Contact [contactAlias=" + contactAlias + ", nom=" + nom + ", prenom=" + prenom + ", email="
 				+ email + ", dateDeNaissance=" + dateDeNaissance + ", actif=" + actif
-				+ ", listAdresses=" + listAdresses + "]\n";
+				+ ", listAdresses=" + adresses + "]\n";
 	}
 }

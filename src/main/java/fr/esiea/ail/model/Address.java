@@ -49,7 +49,7 @@ public class Address {
 	
 	@Override
 	public String toString() {
-		return "Address [addressAlias=" + addressAlias + ", numero=" + numero + ", rue=" + rue + ", codepostal="
+		return "Address [contactAlias=" + contactAlias +", addressAlias=" + addressAlias + ", numero=" + numero + ", rue=" + rue + ", codepostal="
 				+ codepostal + ", ville=" + ville + "]";
 	}
 	

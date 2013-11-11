@@ -1,5 +1,8 @@
 package fr.esiea.ail.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,27 +21,40 @@ public class AddressController {
 	@RequestMapping(value="/adresse",method=RequestMethod.GET)
 	public String ajoutAdresse(Model model)	{
 		
+		HashMap <String, Contact> contacts = PersistenceManager.getContacts();
 		model.addAttribute("address", new Address());
-		
+		model.addAttribute("contacts", contacts);
+		System.out.println("contact list:"+ contacts);
 		return "editAddress";
 	}
 	
-//	Save form in map then display the list of contacts
+//	Save form in map
 	@RequestMapping(value="/adresse",method=RequestMethod.POST)
-	public String addressSubmit(@ModelAttribute Address address, Model model){
+	public String addressSubmit(@ModelAttribute Address address, Model model,
+								@ModelAttribute Contact contact){
 	
-		PersistenceManager.saveAddress(address);
-		model.addAttribute("addresses",PersistenceManager.getAddresses());
+		Address addressSaved = PersistenceManager.saveAddress(address.getContactAlias(), address);
+//		PersistenceManager.updateContact(address.getContactAlias(), address);
+		model.addAttribute("contacts",PersistenceManager.getContacts());
+		model.addAttribute("address",addressSaved);
+		model.addAttribute("contact", null);
 		
-		return "lists";
+		System.out.println(getClass());
+//		System.out.println("saving address info:"+PersistenceManager.getAddress(address.getAddressAlias()));
+		
+		return "add";
 	}		
 	
 //	Display the list of contacts
 	@RequestMapping(value="/liste-adresses",method=RequestMethod.GET)
 	public String listAdresse(Model model)	{
 		
+		Map <String, Address> addresses = PersistenceManager.getAddresses();
 		model.addAttribute("contact", new Contact());
-		model.addAttribute("addresses", PersistenceManager.getAddresses());
+		model.addAttribute("addresses", addresses);
+		model.addAttribute("messageList", "Liste d'adresses");
+		System.out.println(getClass());
+		System.out.println("address list:"+ addresses);
 		
 		return "lists";
 	}
@@ -57,7 +73,7 @@ public class AddressController {
 	public String addressSubmit(@ModelAttribute String key, Model model){
 	
 		PersistenceManager.delete(key);
-		model.addAttribute("address",PersistenceManager.getAddress(key));
+//		model.addAttribute("address",PersistenceManager.getAddress(key));
 		
 		return "lists";
 	}
