@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<h2>Ajout d'un nouveau contact</h2>
+	<h2>Ajout d'une nouvelle adresse</h2>
     <div class="row-fluid">
 	  	
 		<%@ include file="menu.jsp" %>
@@ -20,10 +20,7 @@
 			<sf:form method="POST" modelAttribute="address">
 				<fieldset>
 					<table>
-						<tr>
-							<td>alias:</td>
-							<td><sf:input path="alias" required="required"/></td>
-						</tr>
+
 						<tr>
 							<td>numéro:</td>
 							<td><sf:input path="numero" required="required" placeholder="numéro"/></td>

@@ -5,20 +5,19 @@ import java.util.List;
 
 public class Contact {
 	
-	private String alias ;
+	private String contactAlias ;
 	private String nom;
 	private String prenom;
 	private String email;
 	private Date dateDeNaissance;
 	private Boolean actif;
 	private List<Address> listAdresses ;
-	private String adresse;
 	
-	public String getAlias() {
-		return alias;
+	public String getContactAlias() {
+		return contactAlias;
 	}
-	public void setAlias(String alias) {
-		this.alias = alias;
+	public void setContactAlias(String alias) {
+		this.contactAlias = alias;
 	}
 	public String getNom() {
 		return nom;
@@ -56,17 +55,11 @@ public class Contact {
 	public void setListAdresses(List<Address> listAdresses) {
 		this.listAdresses = listAdresses;
 	}
-	public String getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
 	
 	@Override
 	public String toString() {
-		return "Contact [alias=" + alias + ", nom=" + nom + ", prenom=" + prenom + ", email="
+		return "Contact [contactAlias=" + contactAlias + ", nom=" + nom + ", prenom=" + prenom + ", email="
 				+ email + ", dateDeNaissance=" + dateDeNaissance + ", actif=" + actif
-				+ ", listAdresses=" + listAdresses + ", adresse=" + adresse + "]";
+				+ ", listAdresses=" + listAdresses + "]\n";
 	}
 }

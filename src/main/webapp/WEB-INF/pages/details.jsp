@@ -21,16 +21,15 @@
 	 	<div id="contenu">
 		  	<div class="span9">
 			 	<!-- display all the contacts contained in the HASHMAP  -->
-			 	<c:forEach items="${contacts}" var="contact">  
-				    <p><a href="contact-${contact.value.contactAlias}" >détails</a></p>
-				    <p>nom:  ${contact.value.nom} </p>
-				    <p>prénom:   ${contact.value.prenom} </p>
+					    <p>nom:  ${contact.nom} </p>
+					    <p>prénom:   ${contact.prenom} </p>
+					    <p>email: ${contact.email}</p>
+					    <p>Date de naissance: ${contact.dateDeNaissance}</p>
+					    <p>actif: ${contact.actif}</p>
 				    <hr/>
-			  	</c:forEach>
 			  	
 			 	<!-- display all the adresses contained in the HASHMAP  -->
 			 	<c:forEach items="${addresses}" var="address">  
-				    <p> alias:  ${address.value.addressAlias}</p>
 				    <p> numero:  ${address.value.numero} </p>
 				    <p>rue:   ${address.value.rue} </p>
 				    <p>code postale: ${address.value.codepostal }</p>

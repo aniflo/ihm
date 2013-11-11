@@ -13,8 +13,8 @@ import fr.esiea.ail.persistence.PersistenceManager;
 
 @Controller
 public class AddressController {
-	
-	
+
+//	Get the form address
 	@RequestMapping(value="/adresse",method=RequestMethod.GET)
 	public String ajoutAdresse(Model model)	{
 		
@@ -23,6 +23,7 @@ public class AddressController {
 		return "editAddress";
 	}
 	
+//	Save form in map then display the list of contacts
 	@RequestMapping(value="/adresse",method=RequestMethod.POST)
 	public String addressSubmit(@ModelAttribute Address address, Model model){
 	
@@ -32,6 +33,7 @@ public class AddressController {
 		return "lists";
 	}		
 	
+//	Display the list of contacts
 	@RequestMapping(value="/liste-adresses",method=RequestMethod.GET)
 	public String listAdresse(Model model)	{
 		
@@ -41,15 +43,17 @@ public class AddressController {
 		return "lists";
 	}
 	
-	@RequestMapping(value="/deleteadresse",method=RequestMethod.GET)
+//	delete the selected contact
+	@RequestMapping(value="/delete-adresse",method=RequestMethod.GET)
 	public String suppressionAdresse(Model model){
 		
 		model.addAttribute("addresses",PersistenceManager.getAddresses());
 		
 		return "deleteAddress";
 	}
-		
-	@RequestMapping(value="/deleteadresse",method=RequestMethod.POST)
+	
+//	delete the selected contact and display the list of contact
+	@RequestMapping(value="/delete-adresse",method=RequestMethod.POST)
 	public String addressSubmit(@ModelAttribute String key, Model model){
 	
 		PersistenceManager.delete(key);

@@ -1,16 +1,21 @@
 package fr.esiea.ail.model;
 
-import javax.validation.constraints.NotNull;
 
 public class Address {
 	
-	@NotNull
-	private String alias;
+	private String contactAlias;
+	private String addressAlias;
 	private String numero;
 	private String rue;
 	private String codepostal;
 	private String ville;
 	
+	public String getContactAlias() {
+		return contactAlias;
+	}
+	public void setContactAlias(String contactAlias) {
+		this.contactAlias = contactAlias;
+	}
 	public String getNumero() {
 		return numero;
 	}
@@ -35,16 +40,16 @@ public class Address {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public String getAlias() {
-		return alias;
+	public String getAddressAlias() {
+		return addressAlias;
 	}
-	public void setAlias(String alias) {
-		this.alias = alias;
+	public void setAddressAlias(String alias) {
+		this.addressAlias = alias;
 	}
 	
 	@Override
 	public String toString() {
-		return "Address [alias=" + alias + ", numero=" + numero + ", rue=" + rue + ", codepostal="
+		return "Address [addressAlias=" + addressAlias + ", numero=" + numero + ", rue=" + rue + ", codepostal="
 				+ codepostal + ", ville=" + ville + "]";
 	}
 	

@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Ajouter un contact</title>
+	<title>Ajout d'un nouveau contact</title>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet"  type="text/css" />
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>
@@ -21,10 +21,6 @@
 				<fieldset>
 					<table>
 					
-						<tr>
-							<td>*alias:</td>
-							<td><sf:input path="alias" required="required"/></td>
-						</tr>
 						<tr>
 							<td>nom:</td>
 							<td><sf:input path="nom" required="required" placeholder="nom"/></td>
@@ -48,16 +44,6 @@
 								<option value="false">non</option> 
 							</sf:select></td>
 						</tr>
-						
-						<tr>
-							<td>associer une adresse:</td>
-							<td><sf:select path="adresse" > 
-								<c:forEach items="${addresses}" var="adresse"> 
-									<option value="${address.key}">${address.key}</option>
-								</c:forEach>
-							</sf:select></td>
-						</tr>
-					
 						<tr>
 							<td colspan="2"><input type="submit"
 								value="Ok, j'ajoute un contact !" /></td>
