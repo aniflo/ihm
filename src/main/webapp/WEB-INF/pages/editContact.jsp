@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<h2>Ajouter un contact</h2>
+	<h2>Ajout d'un nouveau contact</h2>
     <div class="row-fluid">
 		
 		<%@ include file="menu.jsp" %>

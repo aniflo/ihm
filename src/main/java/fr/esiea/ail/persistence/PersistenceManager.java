@@ -1,7 +1,6 @@
 package fr.esiea.ail.persistence;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import fr.esiea.ail.model.Address;
 import fr.esiea.ail.model.Contact;
@@ -9,13 +8,12 @@ import fr.esiea.ail.model.Contact;
 public class PersistenceManager {
 	
 //	this HASHMAP will be use as "the database"
-	private static HashMap<String, Address> addresses = new HashMap<String, Address>();
 	private static HashMap<String, Contact> contacts = new HashMap<String, Contact>();
-	private static int addressId = 0;
+	private static int addressId = 1;
 	
 //	Save contact
 	public static void saveContact(Contact contact){
-		String contactAlias = contact.getNom() +" "+ contact.getPrenom() ;
+		String contactAlias = contact.getNom() +"_"+ contact.getPrenom() ;
 		contact.setContactAlias(contactAlias);
 		contacts.put(contact.getContactAlias(), contact);
 	}
@@ -30,7 +28,7 @@ public class PersistenceManager {
 //		
 //	}
 
-	//	Get contact
+//	Get contact by alias
 	public static Contact getContact(String contactAlias) {
 		return contacts.get(contactAlias);
 	}
@@ -41,42 +39,53 @@ public class PersistenceManager {
 	}
 
 //	Delete Contact
-	public static void deleteContact(String key) {
-		contacts.remove(key);
+	public static String deleteContact(String contactAlias) {
+		
+		Contact contact = getContact(contactAlias);
+		String status = null ;
+		
+		if(contact.getAdresses().isEmpty()){
+			contacts.remove(contactAlias);
+			status = "suppression du contact" +contactAlias ;
+			return status;
+		}
+		else {
+			status = "Suppression impossible, la liste d'adresses est non vide"; 
+			return status;
+		}
 	}
 	
 //	Save the address in the HASHMAP
 	public static Address saveAddress(String contactAlias, Address address ){
-		String addressAlias = "address " + addressId  ;
-		address.setAddressAlias(addressAlias);
-		address.setContactAlias(contactAlias);
-		addresses.put(address.getAddressAlias(), address);
-		addressId++;
+
+		if(!(contacts.isEmpty())){
+			String addressAlias = "address_" + addressId  ;
+			address.setAddressAlias(addressAlias);
+			address.setContactAlias(contactAlias);
+			addressId++;
+				
+			Contact contact = contacts.get(contactAlias);
+			contact.getAdresses().put(addressAlias,address);
+			contacts.put(contactAlias, contact);
+			System.out.println("update:" +contacts.get(contactAlias));
 		
-		Contact contact = contacts.get(contactAlias);
-//		System.out.println("old value:" +contacts.get(contactAlias));
-		contact.getAdresses().put(addressAlias,address);
-		contacts.put(contactAlias, contact);
-		System.out.println("update:" +contacts.get(contactAlias));
+			return address;
+		}
 		
-		return address;
-	}
-	
-//	get address by alias
-	public static Address getAddress(String addressAlias){
-		
-		return addresses.get(addressAlias);
-	}
-	
-//	get all addresses
-	public static Map<String, Address> getAddresses() {
-		
-		return addresses;
+		else {
+			return null;
+		}
 	}
 	
 //	delete address from the hash map
-	public static void delete(String key){
-		addresses.remove(key);
+	public static String deleteAddress(String contactAlias, String addressAlias){
+		
+		String status ="Suppression de l'adresse réussie";
+		Contact contact = getContact(contactAlias);
+		contact.getAdresses().remove(addressAlias);
+		System.out.println(contact.getAdresses());
+		
+		return status;
 	}
 	
 }

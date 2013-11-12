@@ -62,6 +62,6 @@ public class Contact {
 	public String toString() {
 		return "Contact [contactAlias=" + contactAlias + ", nom=" + nom + ", prenom=" + prenom + ", email="
 				+ email + ", dateDeNaissance=" + dateDeNaissance + ", actif=" + actif
-				+ ", listAdresses=" + adresses + "]\n";
+				+ ", listAdresses=" + adresses + "]";
 	}
 }

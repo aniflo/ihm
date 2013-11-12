@@ -6,26 +6,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Supprimer une adresse</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Supprimer un contact</title>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet"  type="text/css" />
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>
 <body>
-
-
-	<sf:form method="POST" modelAttribute="adresse">
-		<fieldset>
-			<table>
-			
-				<tr>
-			<c:forEach var="adresse" items="${adresses}">
-            <tr>
-            <sf:radiobuttons path="PersistanceManager.getAdresse(alias)" items="${adresses}"/>
-
-            </tr>
-        </c:forEach>
-	</tr>
-	</table></fieldset></sf:form>
+	<%@ include file="header.jsp" %>
+	<h2>Mise à jour</h2>
+	<div class="row-fluid">
+		<%@ include file="menu.jsp" %>
+	
+		<div>
+			${status}
+		</div>
+		<div>
+			<a href="liste-contacts">Retour à la liste de contact</a>
+		</div>
+	</div>
+	
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

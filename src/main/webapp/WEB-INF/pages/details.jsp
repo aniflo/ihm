@@ -26,6 +26,10 @@
 					    <p>email: ${contact.email}</p>
 					    <p>Date de naissance: ${contact.dateDeNaissance}</p>
 					    <p>actif: ${contact.actif}</p>
+					    <div>
+				    	<a href="editer-contact-${contact.contactAlias}">Editer</a><br>
+				    	<a href="supprimer-contact-${contact.contactAlias}">Supprimer</a>
+				    </div>
 				    <hr/>
 			  	
 			 	<!-- display all the adresses liked to the contact -->
@@ -34,6 +38,10 @@
 				    <p>rue:   ${address.value.rue} </p>
 				    <p>code postale: ${addressvaluevalue.codepostal }</p>
 				    <p>ville: ${address.value.ville }</p>
+				    <div>
+				    	<a href="editer-adresse-${address.value.addressAlias}">Editer</a><br>
+				    	<a href="supprimer-adresse-${contact.contactAlias}-${address.value.addressAlias}">Supprimer</a>
+				    </div>
 				    <hr/>
 		  		</c:forEach>
 		 	</div>

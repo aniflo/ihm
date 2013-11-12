@@ -28,16 +28,6 @@
 				    <hr/>
 			  	</c:forEach>
 			  	
-			 	<!-- display all the adresses contained in the HASHMAP  -->
-			 	<c:forEach items="${addresses}" var="address">  
-				    <p> ${address.value.addressAlias}</p>
-				    <p> numero:  ${address.value.numero} </p>
-				    <p>rue:  ${address.value.rue} </p>
-				    <p>code postale: ${address.value.codepostal }</p>
-				    <p>ville: ${address.value.ville }</p>
-				    <hr/>
-			  	</c:forEach>
-		  	
 		 	</div>
 	  	</div>
   	</div>

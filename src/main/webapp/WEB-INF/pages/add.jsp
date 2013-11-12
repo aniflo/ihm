@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-    <h2>Votre formulaire a bien été enregistré</h2>
+    <h2>Enregistrement du formulaire</h2>
     
     <div class="row-fluid">
 	  	<%@ include file="menu.jsp" %>
@@ -22,23 +22,38 @@
 		  	<div class="span9">
 
 		 		<!-- display saved contact -->
-		  		<c:if test="${contact != null}">
-					    <p>nom:  ${contact.nom} </p>
-					    <p>prénom:   ${contact.prenom} </p>
-					    <p>email: ${contact.email}</p>
-					    <p>Date de naissance: ${contact.dateDeNaissance}</p>
-					    <p>actif: ${contact.actif}</p>
-				    <hr/>
-		  		</c:if>
+		 		<c:choose>
+			  		<c:when test="${contact != null}">
+						    <p>nom:  ${contact.nom} </p>
+						    <p>prénom:   ${contact.prenom} </p>
+						    <p>email: ${contact.email}</p>
+						    <p>Date de naissance: ${contact.dateDeNaissance}</p>
+						    <p>actif: ${contact.actif}</p>
+						    <p><a href="contact">Créer un nouveau contact</a></p>
+					    <hr/>
+			  		</c:when>
+					<c:when test="${contact == null && showContact == true}">
+			  			<p> Aucun contact n'a été enregistré</p>
+			  			<p><a href="contact">Créer un nouveau contact</a></p>
+			  		</c:when>
+		 		</c:choose>
 			  	
 			 	<!-- display saved address -->
-				<c:if test="${address != null}">
-				    <p> numero:  ${address.numero} </p>
-				    <p>rue:   ${address.rue} </p>
-				    <p>code postale: ${address.codepostal }</p>
-				    <p>ville: ${address.ville }</p>
-				    <hr/>
-				   </c:if>
+			 	<c:choose>
+					<c:when test="${address != null}">
+					    <p> numéro:  ${address.numero} </p>
+					    <p>rue:   ${address.rue} </p>
+					    <p>code postale: ${address.codepostal }</p>
+					    <p>ville: ${address.ville }</p>
+					    <p><a href="adresse">Créer une nouvelle adresse</a></p>
+					    <hr/>
+					</c:when>
+					
+					<c:when test="${address == null && showAddress == true}">
+				  			<p> Aucune adresse n'a été enregistré</p>
+				  			<p><a href="adresse">Créer une nouvelle adresse</a></p>
+				  	</c:when>
+				</c:choose>
 		 	</div>
 	  	</div>
   	</div>

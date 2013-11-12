@@ -22,20 +22,24 @@ public class ContactController {
 	public String ajoutContact(Model model)	{
 		
 		model.addAttribute("contact", new Contact());
-		model.addAttribute("addresses", PersistenceManager.getAddresses());
+//		model.addAttribute("addresses", PersistenceManager.getAddresses());
 		
 		return "editContact";
 	}
 	
-//	save form in map then display the list of contacts
+//	save form in map
 	@RequestMapping(value="/contact",method=RequestMethod.POST)
 	public String contactSubmit(@ModelAttribute Contact contact, Model model,
 								@ModelAttribute Address address){
-	
+		
+		boolean showAddress = false ;
+		boolean showContact = true ;
 		PersistenceManager.saveContact(contact);
 		model.addAttribute("contacts",PersistenceManager.getContacts());
-		model.addAttribute("addresses",PersistenceManager.getAddresses());
+//		model.addAttribute("addresses",PersistenceManager.getAddresses());
 		model.addAttribute("address", null);
+		model.addAttribute("showAddress", showAddress);
+		model.addAttribute("showContact", showContact);
 		System.out.println("saving contact info:"+PersistenceManager.getContact(contact.getContactAlias()));
 		
 		return "add";
@@ -71,22 +75,14 @@ public class ContactController {
 	}
 	
 //	delete the selected contact
-	@RequestMapping(value="/delete-contact",method=RequestMethod.GET)
-	public String suppressionContact(Model model){
+	@RequestMapping(value="/supprimer-contact-{contactAlias}",method=RequestMethod.GET)
+	public String suppressionContact(@PathVariable("contactAlias") String contactAlias, Model model){
 		
+		String status = PersistenceManager.deleteContact(contactAlias);
 		model.addAttribute("contacts",PersistenceManager.getContacts());
+		model.addAttribute("status", status);
 		
-		return "deleteContact";
+		return "delete";
 	}
 	
-//	delete the selected contact and display the list of contact
-	@RequestMapping(value="/delete-contact",method=RequestMethod.POST)
-	public String contactSubmit(@ModelAttribute String key, Model model){
-	
-		PersistenceManager.deleteContact(key);
-		model.addAttribute("contact",PersistenceManager.getContact(key));
-		
-		return "lists";
-	}
-		
 }
