@@ -22,36 +22,34 @@
 					<table>
 					
 						<tr>
-							<td>nom</td>
-							<td><sf:input path="nom" required="required" value="${contact.nom}"/></td>
+							<td>nom:</td>
+							<td><sf:input path="nom" required="required" placeholder="nom"/></td>
 						</tr>
 						<tr>
-							<td>prénom</td>
-							<td><sf:input path="prenom" required="required" value="${contact.prenom}"/></td>
+							<td>prénom:</td>
+							<td><sf:input path="prenom" required="required" placeholder="prénom"/></td>
 						</tr>
 						<tr>
-							<td>email</td>
-							<td><sf:input path="email" type="email" value="${contact.email}"/><br/></td>
+							<td>email:</td>
+							<td><sf:input path="email" type="email" placeholder="example@mail.com"/><br/></td>
 						</tr>
 						<tr>
-							<td>*Date de naissance</td>
-							<td><sf:input path="dateDeNaissance" required="required" value="${contact.dateDeNaissance}"/></td>
+							<td>Date de naissance:</td>
+							<td><sf:input path="dateDeNaissance" required="required" placeholder="jj/mm/aaaa"/></td>
 						</tr>
 						<tr>
-							<td>actif</td>
+							<td>actif:</td>
 							<td><sf:select path="actif" > 
-								<option value="${contact.actif}">${contact.actif}</option>
 								<option value="true">oui</option>
 								<option value="false">non</option> 
 							</sf:select></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="submit"
-								value="Ok, j'édite ce contact !" /></td>
+								value="Ok, j'ajoute un contact !" /></td>
 						</tr>
 					</table>
 				</fieldset>
-				<div class="notaBene">*Veuillez re-entrer la date de naissance sous le format dd/mm/yyyy</div>
 			</sf:form>
 		</div>
 	</div>

@@ -23,21 +23,21 @@
 
 						<tr>
 							<td>numéro:</td>
-							<td><sf:input path="numero" required="required" value="${address.numero}"/></td>
+							<td><sf:input path="numero" required="required" placeholder="numéro"/></td>
 						</tr>
 						<tr>
 							<td>rue:</td>
-							<td><sf:input path="rue" required="required" value="${address.rue}"/></td>
+							<td><sf:input path="rue" required="required" placeholder="rue"/></td>
 						</tr>
 						<tr>
 							<td>CP:</td>
-							<td><sf:input path="codepostal" value="${address.codepostal}"/><br/>
+							<td><sf:input path="codepostal" placeholder="codepostal"/><br/>
 								
 							</td>
 						</tr>
 						<tr>
 							<td>Ville:</td>
-							<td><sf:input path="ville" value="${address.ville}"/></td>
+							<td><sf:input path="ville" placeholder="ville"/></td>
 						</tr>
 						
 						<tr>

@@ -17,16 +17,18 @@ public class PersistenceManager {
 		contact.setContactAlias(contactAlias);
 		contacts.put(contact.getContactAlias(), contact);
 	}
-	
-//	public static void updateContact (String contactAlias, Address address){
-//		
-//		Contact contact = contacts.get(contactAlias);
-//		System.out.println("old value:" +contacts.get(contactAlias));
-//		contact.getAdresses().put(contactAlias,address);
-//		contacts.put(contactAlias, contact);
-//		System.out.println("update:" +contacts.get(contactAlias));
-//		
-//	}
+
+//	Update existing contact	
+	public static void updateContact (String contactAlias, Contact contact){
+		
+		Contact oldContact = contacts.get(contactAlias);
+		System.out.println("old value:" +oldContact);
+		contact.setContactAlias(contactAlias);
+		contact.setAdresses(oldContact.getAdresses());
+		contacts.put(contactAlias, contact);
+		System.out.println("update:" +contacts.get(contactAlias));
+		
+	}
 
 //	Get contact by alias
 	public static Contact getContact(String contactAlias) {
@@ -75,6 +77,19 @@ public class PersistenceManager {
 		else {
 			return null;
 		}
+	}
+	
+//	Update existing address of contact	
+	public static Address updateAddress (String contactAlias, String addressAlias, Address address){
+		
+		Address oldAddress = contacts.get(contactAlias).getAdresses().get(addressAlias);
+		System.out.println("old value:" +oldAddress);
+		address.setAddressAlias(addressAlias);
+		
+		Address newAddress = contacts.get(contactAlias).getAdresses().put(addressAlias, address);
+		System.out.println("update:" + newAddress);
+		
+		return newAddress;
 	}
 	
 //	delete address from the hash map

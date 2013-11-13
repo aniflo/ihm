@@ -43,7 +43,7 @@
 					<c:when test="${address != null}">
 					    <p> numéro:  ${address.numero} </p>
 					    <p>rue:   ${address.rue} </p>
-					    <p>code postale: ${address.codepostal }</p>
+					    <p>code postal: ${address.codepostal }</p>
 					    <p>ville: ${address.ville }</p>
 					    <p><a href="adresse">Créer une nouvelle adresse</a></p>
 					    <hr/>

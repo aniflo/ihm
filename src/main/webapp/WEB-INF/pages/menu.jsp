@@ -11,7 +11,6 @@
 			        <li><a href="#">Adresses </a>
 			            <ul>
 			                <li><a href="adresse">Créer</a></li>
-			                <!-- <li><a href="liste-adresses">Chercher</a></li> -->
 			            </ul>
 			        </li>
 			    </ul>

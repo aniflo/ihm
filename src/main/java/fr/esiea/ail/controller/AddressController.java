@@ -25,7 +25,7 @@ public class AddressController {
 		model.addAttribute("address", new Address());
 		model.addAttribute("contacts", contacts);
 		System.out.println("contact list:"+ contacts);
-		return "editAddress";
+		return "createAddress";
 	}
 	
 //	Save form address in map
@@ -47,7 +47,33 @@ public class AddressController {
 		
 		return "add";
 	}		
+
+//	Get the edit form contact
+	@RequestMapping(value="editer-adresse-{contactAlias}-{addressAlias}",method=RequestMethod.GET)
+	public String editContact(@PathVariable("contactAlias") String contactAlias,Model model,
+								@PathVariable("addressAlias") String addressAlias)	{
+		
+		Address address = PersistenceManager.getContact(contactAlias).getAdresses().get(addressAlias);
+//		Contact contact = PersistenceManager.getContact(contactAlias);
+		model.addAttribute("address", address);
+		return "editAddress";
+	}
 	
+//	Update address of contact
+	@RequestMapping(value="editer-adresse-{contactAlias}-{addressAlias}", method=RequestMethod.POST)
+	public String editAddress(@PathVariable("contactAlias") String contactAlias, Model model,
+								@PathVariable("addressAlias") String addressAlias, @ModelAttribute Address address,
+								@ModelAttribute Contact contact){
+
+		boolean showAddress = true ;
+		boolean showContact = false ;
+		PersistenceManager.updateAddress(contactAlias, addressAlias, address);
+		model.addAttribute("contact", null);
+		model.addAttribute("showAddress", showAddress);
+		model.addAttribute("showContact", showContact);
+		return "add";
+
+}
 //	delete the selected address
 	@RequestMapping(value="/supprimer-adresse-{contactAlias}-{addressAlias}",method=RequestMethod.GET)
 	public String suppressionAdresse(@PathVariable("addressAlias") String addressAlias,Model model,

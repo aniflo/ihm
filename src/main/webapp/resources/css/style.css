@@ -13,12 +13,16 @@ footer, h1, h2, .menu {
 	text-align: center
 }
 
+.notaBene {
+	color:#FF0000;
+}
+
 .author, .title, #contenu, .introduction {
 	color: #000000 ;
 }
 
 footer {
-	color: #C01480;
+	color: #F5CA56;
 	font-weight: bold;
 }
 

@@ -22,9 +22,7 @@ public class ContactController {
 	public String ajoutContact(Model model)	{
 		
 		model.addAttribute("contact", new Contact());
-//		model.addAttribute("addresses", PersistenceManager.getAddresses());
-		
-		return "editContact";
+		return "createContact";
 	}
 	
 //	save form in map
@@ -35,8 +33,6 @@ public class ContactController {
 		boolean showAddress = false ;
 		boolean showContact = true ;
 		PersistenceManager.saveContact(contact);
-		model.addAttribute("contacts",PersistenceManager.getContacts());
-//		model.addAttribute("addresses",PersistenceManager.getAddresses());
 		model.addAttribute("address", null);
 		model.addAttribute("showAddress", showAddress);
 		model.addAttribute("showContact", showContact);
@@ -72,6 +68,30 @@ public class ContactController {
 		
 		System.out.println("contact list:"+contacts);
 		return "lists";
+	}
+	
+//	Get the edit form contact
+	@RequestMapping(value="/editer-contact-{contactAlias}",method=RequestMethod.GET)
+	public String editContact(@PathVariable("contactAlias") String contactAlias,Model model)	{
+		
+		Contact contact = PersistenceManager.getContact(contactAlias);
+		model.addAttribute("contact", contact);
+		return "editContact";
+	}
+	
+//	update existing contact
+	@RequestMapping(value="editer-contact-{contactAlias}", method=RequestMethod.POST)
+	public String editContact(@PathVariable("contactAlias") String contactAlias, Model model,
+								@ModelAttribute Contact contact){
+		
+		boolean showAddress = false ;
+		boolean showContact = true ;
+		PersistenceManager.updateContact(contactAlias, contact);
+		model.addAttribute("address", null);
+		model.addAttribute("showAddress", showAddress);
+		model.addAttribute("showContact", showContact);
+		return "add";
+		
 	}
 	
 //	delete the selected contact

@@ -36,10 +36,10 @@
 			 	<c:forEach var="address" items="${addresses}" >  
 				    <p> numero:  ${address.value.numero} </p>
 				    <p>rue:   ${address.value.rue} </p>
-				    <p>code postale: ${addressvaluevalue.codepostal }</p>
+				    <p>code postal: ${address.value.codepostal }</p>
 				    <p>ville: ${address.value.ville }</p>
 				    <div>
-				    	<a href="editer-adresse-${address.value.addressAlias}">Editer</a><br>
+				    	<a href="editer-adresse-${contact.contactAlias}-${address.value.addressAlias}">Editer</a><br>
 				    	<a href="supprimer-adresse-${contact.contactAlias}-${address.value.addressAlias}">Supprimer</a>
 				    </div>
 				    <hr/>
