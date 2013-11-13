@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Carnet d'addresses</title>
+	<title>Carnet d'adresses</title>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet"  type="text/css" />
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>

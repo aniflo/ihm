@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Ajout d'un nouveau contact</title>
+	<title>Carnet d'adresses</title>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet"  type="text/css" />
 	<link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet"> 
 </head>

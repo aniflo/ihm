@@ -85,11 +85,11 @@ public class PersistenceManager {
 		Address oldAddress = contacts.get(contactAlias).getAdresses().get(addressAlias);
 		System.out.println("old value:" +oldAddress);
 		address.setAddressAlias(addressAlias);
+		address.setContactAlias(contactAlias);
+		contacts.get(contactAlias).getAdresses().put(addressAlias, address);
+		System.out.println("update:" + address);
 		
-		Address newAddress = contacts.get(contactAlias).getAdresses().put(addressAlias, address);
-		System.out.println("update:" + newAddress);
-		
-		return newAddress;
+		return address;
 	}
 	
 //	delete address from the hash map
