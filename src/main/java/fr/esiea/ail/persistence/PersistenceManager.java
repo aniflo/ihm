@@ -49,10 +49,12 @@ public class PersistenceManager {
 		if(contact.getAdresses().isEmpty()){
 			contacts.remove(contactAlias);
 			status = "suppression du contact" +contactAlias ;
+			System.out.println(status);
 			return status;
 		}
 		else {
-			status = "Suppression impossible, la liste d'adresses est non vide"; 
+			status = "Suppression impossible, la liste d'adresses est non vide";
+			System.out.println(status);
 			return status;
 		}
 	}
@@ -99,7 +101,7 @@ public class PersistenceManager {
 		Contact contact = getContact(contactAlias);
 		contact.getAdresses().remove(addressAlias);
 		System.out.println(contact.getAdresses());
-		
+		System.out.println(status);
 		return status;
 	}
 	

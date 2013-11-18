@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <header>
-	<h1>${message}</h1>	
+	<h1><spring:message code="header" /></h1>	
 </header>

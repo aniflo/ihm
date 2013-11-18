@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <footer>
-	<div>Application Web développée par Florent ANICET et Shanthan SIVARAJAH</div>
+	<div><spring:message code="footer" /></div>
 </footer>
